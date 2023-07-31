@@ -1,9 +1,16 @@
-import React from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
-const ChatBody = ({ messages }) => {
-  const navigate = useNavigate();
+type Message = {
+  id: string,
+  name:string,
+  socketID:string
+  text:string
+}
 
+const ChatBody = ({ messages }:any) => {
+  const navigate = useNavigate();
+   console.log(messages)
   const handleLeaveChat = () => {
     localStorage.removeItem('userName');
     navigate('/');
@@ -20,11 +27,12 @@ const ChatBody = ({ messages }) => {
       </header>
 
       <div className="message__container">
-        {messages.map((message) =>
+        {messages.map((message:Message) =>
           message.name === localStorage.getItem('userName') ? (
             <div className="message__chats" key={message.id}>
               <p className="sender__name">You</p>
               <div className="message__sender">
+                {JSON.stringify(typeof message)}
                 <p>{message.text}</p>
               </div>
             </div>

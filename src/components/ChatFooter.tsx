@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 
 const ChatFooter = ({socket}:any) => {
   const [message, setMessage] = useState('');
