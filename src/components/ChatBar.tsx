@@ -1,6 +1,6 @@
 import {useEffect,useState} from 'react';
 
-export const ChatBar = ({socket}) => {
+export const ChatBar = ({socket}:any) => {
 
     const [users, setUsers] = useState([]);
 
@@ -15,7 +15,7 @@ export const ChatBar = ({socket}) => {
       <div>
         <h4 className="chat__header">ACTIVE USERS</h4>
         <div className="chat__users">
-        {users.map((user) => (
+        {users.map((user:any) => (
             <p key={user.socketID}>{user.userName}</p>
           ))}
         </div>
